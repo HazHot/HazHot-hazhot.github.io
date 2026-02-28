@@ -969,7 +969,6 @@
             backgroundMusic.volume = 0.3;
         }
 
-        // Функция для отслеживания загрузки всех ассетов
         function trackAssetLoad() {
             loadedAssets++;
             const loadingPercent = Math.floor((loadedAssets / totalAssets) * 100);
@@ -979,7 +978,6 @@
             }
             if (loadedAssets >= totalAssets) {
                 assetsLoaded = true;
-                // Запускаем эффект печатной машинки с финальным сообщением
                 runStartScreenEffect();
             }
         }
@@ -1051,10 +1049,8 @@
             const profilePicture = document.querySelector('.profile-picture');
             const profileContainer = document.querySelector('.profile-container');
 
-            // Инициализация загрузки ассетов
             preloadAssets();
 
-            // Начальный текст загрузки
             let startMessage = "Загружаем. . .";
             let startTextContent = '';
             let startIndex = 0;
@@ -1065,11 +1061,9 @@
             function runStartScreenEffect() {
                 const finalMessage = "Ну же, один клик во имя повелителя.";
                 if (!assetsLoaded) {
-                    // Пока идёт загрузка
                     startText.textContent = "Загружаем. . .";
                     typeWriterInterval = setTimeout(runStartScreenEffect, 100);
                 } else if (!typewriterComplete) {
-                    // Загрузка завершена, запускаем печатную машинку с финальным сообщением
                     if (startIndex <= finalMessage.length) {
                         startTextContent = finalMessage.slice(0, startIndex);
                         startText.textContent = startTextContent + (startCursorVisible ? '|' : ' ');
@@ -1079,7 +1073,6 @@
                         typeWriterInterval = setTimeout(runStartScreenEffect, 100);
                     } else {
                         typewriterComplete = true;
-                        // Оставляем курсор мигающим
                         setInterval(() => {
                             startCursorVisible = !startCursorVisible;
                             startText.textContent = startTextContent + (startCursorVisible ? '|' : ' ');
@@ -1091,7 +1084,7 @@
 
             startScreen.addEventListener('click', () => {
                 if (!assetsLoaded) {
-                    return; // Блокируем клик пока ассеты не загружены и текст не напечатан
+                    return;
                 }
                 clearTimeout(typeWriterInterval);
                 startScreen.classList.add('hidden');
@@ -1116,7 +1109,7 @@
             startScreen.addEventListener('touchstart', (e) => {
                 if (!assetsLoaded || !typewriterComplete) {
                     e.preventDefault();
-                    return; // Блокируем клик пока ассеты не загружены и текст не напечатан
+                    return;
                 }
                 startScreen.classList.add('hidden');
                 backgroundMusic.muted = false;
@@ -1154,10 +1147,13 @@
             const bioMessages = [
                 "discord: potentate",
                 "Если вы везде в блоке: cojepp3y@dzet.su",
-                "Создатель ❤️ MineLovely ❤️",
-                "Спасибо господь, что я такой ахуенный",
+                "Создатель MineLovely ❤️",
+                "Спасибо господь, что я такой a*уенный",
                 "Первый увидивший сие - мой брат по несчастью",
-                "4 за столь сложный экзамен это нормально, и это я о тебе, у меня 5"
+                "4 за столь сложный экзамен это круто! И это я о тебе, у меня 5",
+                "Зачем ты это читаешь?",
+                "Человек, что посвятил себя ГШ, но оказался там не нужен, а С8 перестал быть местом, где можно с радостью провести время",
+                "github unlock me pls"
             ];
             let name = names[Math.floor(Math.random() * names.length)];
             let nameText = '';

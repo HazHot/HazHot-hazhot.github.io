@@ -1047,7 +1047,6 @@
             function runStartScreenEffect() {
                 const finalMessage = "Ну же, один клик во имя повелителя. . .";
                 if (!assetsLoaded) {
-                    startText.textContent = "Идет подгрузка контента страницы, пожалуйста подождите. . .";
                     typeWriterInterval = setTimeout(runStartScreenEffect, 100);
                 } else if (!typewriterComplete) {
                     if (startIndex <= finalMessage.length) {

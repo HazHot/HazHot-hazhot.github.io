@@ -18,12 +18,12 @@
 
         .home-theme #profile-block,
         .home-theme #skills-block {
-            border-color: #8e92c6;
+            border-color: #7c00ff;
         }
 
         .profile-container::after {
             background: radial-gradient(circle at 10px 10px,
-                    var(--primary-color, #b700ff) 23%,
+                    var(--primary-color, #ab0c34) 23%,
                     transparent 15%);
         }
 
@@ -157,7 +157,7 @@
             width: 820px;
             min-height: 332px;
             background: rgba(0, 0, 0, 0.7);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 20px;
             border-radius: 15px;
             z-index: 20;
@@ -834,7 +834,7 @@
                         </path>
                     </svg>
                     <span id="visitor-count">987321</span>
-                    <span class="tooltip">Now: Mizere theme</span>
+                    <span class="tooltip">Тема Переменна</span>
                 </div>
             </div>
         </div>
@@ -844,7 +844,7 @@
                 <div class="skill-name">
                     <img src="assets/hp.png" alt="img" class="skill-icon">
                     <span>Очки здоровья</span>
-                    <span>84%</span>
+                    <span>75%</span>
                 </div>
                 <div class="skill-barrcontainer">
                     <div id="barr1" class="skill-bar"></div>
@@ -868,7 +868,7 @@
                 <div class="skill-name">
                     <img src="assets/crown.png" alt="img" class="skill-icon">
                     <span>Чувство собственного величия</span>
-                    <span>68%</span>
+                    <span>62%</span>
                 </div>
                 <div class="skill-barrcontainer">
                     <div id="barr4" class="skill-bar"></div>
@@ -1071,10 +1071,10 @@
                 setTimeout(() => {
                     elem.innerText = text;
                     elem.style.opacity = 1;
-                }, 1000);
+                }, 500);
             }
             const names = [
-                "👾 Мизеро ",
+                //"👾 Мизеро ",
                 "✨ Lexxikka",
                 "⚰️ Агнец",
                 "💬 Potentate",
@@ -1083,17 +1083,19 @@
             ];
             const bioMessages = [
                 "Чтож с чего бы мне лучше начать?",
+                "Нимб не подходит к          рогам.",
                 "Я человек, что посвятил себя ГШ, но оказался там не нужен, а С8 перестал быть местом, где можно с радостью провести время. . .",
-                "Раньше было лучше... Даже старая тема была лучше. . .",
+                //"Раньше было лучше... Даже старая тема была лучше. . .",
                 "До меня дошли слухи, что это я расформировал m.o.r.t.i.s., это правда?",
                 "Лучший работник планеты © FICSIT",
                 "Лафлейма я буду осуждать долго, а за что - не скажу",
                 "Первый увидивший это творение - мой брат по несчастью",
-                //"Музыка: Molly Moon - Просто забей",
+                "Музыка: Asper X - Волчок",
                 "Третьего сезона MineLovely не будет",
                 "Я добрый человек, не с кем не хочу ссориться, так что если я был с вами груб или резок, поработайте над собой, и мне не придется вести себя так снова",
                 "git push *megre error* git push --force",
                 "Спасибо господь, что я такой a*уенный",
+                "Но нимб всё равно не подходит к рогам.",
                 "github unban me pls",
                 "4 за столь сложный экзамен это круто! И это я о тебе, у меня 5",
                 "Почему я не доверяю собакам? Они издают lie",
@@ -1118,7 +1120,7 @@
                     nameIndex--;
                 } else if (nameIndex === name.length) {
                     isNameDeleting = true;
-                    setTimeout(typeWriterName, 2000);
+                    setTimeout(typeWriterName, 5000);
                     return;
                 } else if (nameIndex === 0) {
                     isNameDeleting = false;
@@ -1126,10 +1128,6 @@
                     name = names[currentNameIndex];
                 }
                 profileName.textContent = nameText + (nameCursorVisible ? '|' : ' ');
-                if (Math.random() < 0.1) {
-                    profileName.classList.add('glitch');
-                    setTimeout(() => profileName.classList.remove('glitch'), 200);
-                }
                 setTimeout(typeWriterName, isNameDeleting ? 50 : Math.floor(Math.random() * 101) + 30);
             }
             setInterval(() => {
@@ -1283,7 +1281,7 @@
             let isShowingSkills = false;
             resultsButton.addEventListener('click', () => {
                 if (!isShowingSkills) {
-                    AnimatedText(resultsButton, "Нажми чтобы вернуться")
+                    AnimatedText(resultsButton, "Нажми, чтобы вернуться")
                     gsap.to(profileBlock, {
                         x: -100,
                         opacity: 0,
@@ -1296,10 +1294,10 @@
                                 { x: 100, opacity: 0 },
                                 { x: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }
                             );
-                            gsap.to(bar1el, { width: '84%', duration: 5, ease: 'power2.out' });
+                            gsap.to(bar1el, { width: '75%', duration: 5, ease: 'power2.out' });
                             gsap.to(bar2el, { width: '33%', duration: 1, ease: 'power2.out' });
                             gsap.to(bar3el, { width: '14%', duration: 4, ease: 'power2.out' });
-                            gsap.to(bar4el, { width: '68%', duration: 3, ease: 'power2.out' });
+                            gsap.to(bar4el, { width: '62%', duration: 3, ease: 'power2.out' });
                             gsap.to(bar5el, { width: '41%', duration: 2, ease: 'power2.out' });
                         }
                     });
